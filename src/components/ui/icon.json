@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_ui_icons",
+  "info": {
+    "displayName": "Icon"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "enumeration",
+      "enum": [
+        "bath",
+        "chat",
+        "clock",
+        "dollar",
+        "donation",
+        "drop",
+        "gas_stove",
+        "heart",
+        "home_heart",
+        "key",
+        "mail",
+        "marker",
+        "protection",
+        "rain",
+        "toilet",
+        "washer",
+        "water_mixer",
+        "wifi",
+        "wine"
+      ],
+      "required": true
+    }
+  }
+}

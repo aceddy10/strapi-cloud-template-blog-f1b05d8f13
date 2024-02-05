@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "services_sections",
+  "info": {
+    "singularName": "services-section",
+    "pluralName": "services-sections",
+    "displayName": "Services Section"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "list": {
+      "type": "component",
+      "repeatable": true,
+      "component": "ui.list-item",
+      "required": true
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "item.services",
+      "required": true
+    }
+  }
+}

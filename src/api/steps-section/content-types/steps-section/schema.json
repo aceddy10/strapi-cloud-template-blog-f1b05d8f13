@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "steps_sections",
+  "info": {
+    "singularName": "steps-section",
+    "pluralName": "steps-sections",
+    "displayName": "Steps Section"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "item.steps"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_item_services",
+  "info": {
+    "displayName": "Services"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "href": {
+      "type": "string",
+      "required": true
+    },
+    "icon": {
+      "displayName": "Icon",
+      "type": "component",
+      "repeatable": false,
+      "component": "ui.icon",
+      "required": true
+    }
+  }
+}

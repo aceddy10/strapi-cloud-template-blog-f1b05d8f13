@@ -1,0 +1,46 @@
+{
+  "collectionName": "components_ui_buttons",
+  "info": {
+    "displayName": "Button"
+  },
+  "options": {},
+  "attributes": {
+    "ui": {
+      "type": "enumeration",
+      "enum": [
+        "primary",
+        "secondary",
+        "outline"
+      ],
+      "default": "primary",
+      "required": true
+    },
+    "size": {
+      "type": "enumeration",
+      "enum": [
+        "md",
+        "lg"
+      ],
+      "default": "lg",
+      "required": true
+    },
+    "arrow": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "external": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "href": {
+      "type": "string",
+      "required": true
+    },
+    "text": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

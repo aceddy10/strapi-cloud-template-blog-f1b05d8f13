@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blog_sections",
+  "info": {
+    "singularName": "blog-section",
+    "pluralName": "blog-sections",
+    "displayName": "Blog Section"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "item.blog",
+      "required": true
+    }
+  }
+}

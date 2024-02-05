@@ -1,0 +1,39 @@
+{
+  "kind": "singleType",
+  "collectionName": "contacts_sections",
+  "info": {
+    "singularName": "contacts-section",
+    "pluralName": "contacts-sections",
+    "displayName": "Contacts Section"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    },
+    "phone_label": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "string",
+      "required": true
+    },
+    "email_label": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
