@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "whole_home_filtration_pricing_pages",
+  "info": {
+    "singularName": "whole-home-filtration-pricing-page",
+    "pluralName": "whole-home-filtration-pricing-pages",
+    "displayName": "Whole Home Filtration Pricing Page"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pricing_page_template": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::pricing-page-template.pricing-page-template"
+    }
+  }
+}

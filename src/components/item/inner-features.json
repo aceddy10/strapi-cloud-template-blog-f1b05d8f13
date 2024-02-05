@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_item_inner_features",
+  "info": {
+    "displayName": "Inner Features"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "component",
+      "repeatable": false,
+      "required": true,
+      "component": "ui.icon"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

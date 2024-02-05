@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_item_pricing_features",
+  "info": {
+    "displayName": "Pricing Features"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "component",
+      "repeatable": false,
+      "component": "ui.icon",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

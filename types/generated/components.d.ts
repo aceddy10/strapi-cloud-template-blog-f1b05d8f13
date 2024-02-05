@@ -11,6 +11,92 @@ export interface ItemBlog extends Schema.Component {
   };
 }
 
+export interface ItemContent extends Schema.Component {
+  collectionName: 'components_item_contents';
+  info: {
+    displayName: 'Content';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    text: Attribute.Text;
+    button: Attribute.Component<'ui.button'>;
+    list: Attribute.Component<'ui.list-item', true>;
+    image: Attribute.Media;
+  };
+}
+
+export interface ItemFaq extends Schema.Component {
+  collectionName: 'components_item_faqs';
+  info: {
+    displayName: 'FAQ';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+  };
+}
+
+export interface ItemInnerFeatures extends Schema.Component {
+  collectionName: 'components_item_inner_features';
+  info: {
+    displayName: 'Inner Features';
+  };
+  attributes: {
+    icon: Attribute.Component<'ui.icon'> & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+  };
+}
+
+export interface ItemInnerHero extends Schema.Component {
+  collectionName: 'components_item_inner_heroes';
+  info: {
+    displayName: 'Inner Hero';
+  };
+  attributes: {
+    icon: Attribute.Component<'ui.icon'> & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.String & Attribute.Required;
+  };
+}
+
+export interface ItemPricingFeatures extends Schema.Component {
+  collectionName: 'components_item_pricing_features';
+  info: {
+    displayName: 'Pricing Features';
+  };
+  attributes: {
+    icon: Attribute.Component<'ui.icon'> & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+  };
+}
+
+export interface ItemPricingPlan extends Schema.Component {
+  collectionName: 'components_item_pricing_plans';
+  info: {
+    displayName: 'Pricing Plan';
+    description: '';
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    price: Attribute.Float & Attribute.Required & Attribute.DefaultTo<0>;
+    installation: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    list: Attribute.Component<'ui.list-item', true> & Attribute.Required;
+    get_started_href: Attribute.String;
+    get_started_external: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<true>;
+    get_started_color: Attribute.Enumeration<
+      ['primary', 'secondary', 'tertiary']
+    > &
+      Attribute.Required &
+      Attribute.DefaultTo<'primary'>;
+  };
+}
+
 export interface ItemServices extends Schema.Component {
   collectionName: 'components_item_services';
   info: {
@@ -33,6 +119,18 @@ export interface ItemSteps extends Schema.Component {
     title: Attribute.String & Attribute.Required;
     description: Attribute.Text & Attribute.Required;
     image: Attribute.Media & Attribute.Required;
+  };
+}
+
+export interface ItemTips extends Schema.Component {
+  collectionName: 'components_item_tips';
+  info: {
+    displayName: 'Tips';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    icon: Attribute.Component<'ui.tips-icon'> & Attribute.Required;
   };
 }
 
@@ -150,12 +248,32 @@ export interface UiListItem extends Schema.Component {
   };
 }
 
+export interface UiTipsIcon extends Schema.Component {
+  collectionName: 'components_ui_tips_icons';
+  info: {
+    displayName: 'Tips Icon';
+  };
+  attributes: {
+    name: Attribute.Enumeration<
+      ['tips_detects', 'tips_alerts', 'tips_controls', 'tips_smart']
+    > &
+      Attribute.Required;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'item.blog': ItemBlog;
+      'item.content': ItemContent;
+      'item.faq': ItemFaq;
+      'item.inner-features': ItemInnerFeatures;
+      'item.inner-hero': ItemInnerHero;
+      'item.pricing-features': ItemPricingFeatures;
+      'item.pricing-plan': ItemPricingPlan;
       'item.services': ItemServices;
       'item.steps': ItemSteps;
+      'item.tips': ItemTips;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
@@ -163,6 +281,7 @@ declare module '@strapi/types' {
       'ui.button': UiButton;
       'ui.icon': UiIcon;
       'ui.list-item': UiListItem;
+      'ui.tips-icon': UiTipsIcon;
     }
   }
 }

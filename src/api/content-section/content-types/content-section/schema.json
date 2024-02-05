@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "content_sections",
+  "info": {
+    "singularName": "content-section",
+    "pluralName": "content-sections",
+    "displayName": "Content Section"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "items": {
+      "displayName": "Content",
+      "type": "component",
+      "repeatable": true,
+      "component": "item.content",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_item_inner_heroes",
+  "info": {
+    "displayName": "Inner Hero"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "component",
+      "repeatable": false,
+      "component": "ui.icon",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

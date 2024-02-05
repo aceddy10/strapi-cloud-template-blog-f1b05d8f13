@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "inner_hero_sections",
+  "info": {
+    "singularName": "inner-hero-section",
+    "pluralName": "inner-hero-sections",
+    "displayName": "Inner Hero Section"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "primary_image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "secondary_image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "ui.button",
+      "required": true
+    },
+    "items": {
+      "displayName": "Inner Hero",
+      "type": "component",
+      "repeatable": true,
+      "component": "item.inner-hero",
+      "required": false
+    }
+  }
+}

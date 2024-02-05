@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pricing_page_templates",
+  "info": {
+    "singularName": "pricing-page-template",
+    "pluralName": "pricing-page-templates",
+    "displayName": "Pricing Page Template"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pricing_hero_section": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::pricing-hero-section.pricing-hero-section",
+      "inversedBy": "pricing_page_templates"
+    },
+    "pricing_features_section": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::pricing-features-section.pricing-features-section",
+      "inversedBy": "pricing_page_templates"
+    },
+    "faq_section": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::faq-section.faq-section",
+      "inversedBy": "pricing_page_templates"
+    }
+  }
+}

@@ -847,6 +847,72 @@ export interface ApiContactsSectionContactsSection extends Schema.SingleType {
   };
 }
 
+export interface ApiContentSectionContentSection extends Schema.CollectionType {
+  collectionName: 'content_sections';
+  info: {
+    singularName: 'content-section';
+    pluralName: 'content-sections';
+    displayName: 'Content Section';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    label: Attribute.String & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+    items: Attribute.Component<'item.content', true> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::content-section.content-section',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::content-section.content-section',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiFaqSectionFaqSection extends Schema.CollectionType {
+  collectionName: 'faq_sections';
+  info: {
+    singularName: 'faq-section';
+    pluralName: 'faq-sections';
+    displayName: 'FAQ Section';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    items: Attribute.Component<'item.faq', true> & Attribute.Required;
+    pricing_page_templates: Attribute.Relation<
+      'api::faq-section.faq-section',
+      'oneToMany',
+      'api::pricing-page-template.pricing-page-template'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::faq-section.faq-section',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::faq-section.faq-section',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiGlobalGlobal extends Schema.SingleType {
   collectionName: 'globals';
   info: {
@@ -880,55 +946,6 @@ export interface ApiGlobalGlobal extends Schema.SingleType {
   };
 }
 
-export interface ApiHeroPageHeroPage extends Schema.SingleType {
-  collectionName: 'hero_pages';
-  info: {
-    singularName: 'hero-page';
-    pluralName: 'hero-pages';
-    displayName: 'Hero Page';
-    description: '';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    home_hero_section: Attribute.Relation<
-      'api::hero-page.hero-page',
-      'oneToOne',
-      'api::home-hero-section.home-hero-section'
-    >;
-    services_section: Attribute.Relation<
-      'api::hero-page.hero-page',
-      'oneToOne',
-      'api::services-section.services-section'
-    >;
-    blog_section: Attribute.Relation<
-      'api::hero-page.hero-page',
-      'oneToOne',
-      'api::blog-section.blog-section'
-    >;
-    steps_section: Attribute.Relation<
-      'api::hero-page.hero-page',
-      'oneToOne',
-      'api::steps-section.steps-section'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::hero-page.hero-page',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::hero-page.hero-page',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiHomeHeroSectionHomeHeroSection
   extends Schema.CollectionType {
   collectionName: 'home_hero_sections';
@@ -955,6 +972,417 @@ export interface ApiHomeHeroSectionHomeHeroSection
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::home-hero-section.home-hero-section',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiHomePageHomePage extends Schema.SingleType {
+  collectionName: 'home_pages';
+  info: {
+    singularName: 'home-page';
+    pluralName: 'home-pages';
+    displayName: 'Home Page';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    home_hero_section: Attribute.Relation<
+      'api::home-page.home-page',
+      'oneToOne',
+      'api::home-hero-section.home-hero-section'
+    >;
+    services_section: Attribute.Relation<
+      'api::home-page.home-page',
+      'oneToOne',
+      'api::services-section.services-section'
+    >;
+    blog_section: Attribute.Relation<
+      'api::home-page.home-page',
+      'oneToOne',
+      'api::blog-section.blog-section'
+    >;
+    steps_section: Attribute.Relation<
+      'api::home-page.home-page',
+      'oneToOne',
+      'api::steps-section.steps-section'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::home-page.home-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::home-page.home-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiInnerFeaturesSectionInnerFeaturesSection
+  extends Schema.CollectionType {
+  collectionName: 'inner_features_sections';
+  info: {
+    singularName: 'inner-features-section';
+    pluralName: 'inner-features-sections';
+    displayName: 'Inner Features Section';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    label: Attribute.String & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+    items: Attribute.Component<'item.inner-features', true> &
+      Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::inner-features-section.inner-features-section',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::inner-features-section.inner-features-section',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiInnerHeroSectionInnerHeroSection
+  extends Schema.CollectionType {
+  collectionName: 'inner_hero_sections';
+  info: {
+    singularName: 'inner-hero-section';
+    pluralName: 'inner-hero-sections';
+    displayName: 'Inner Hero Section';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text;
+    primary_image: Attribute.Media & Attribute.Required;
+    secondary_image: Attribute.Media & Attribute.Required;
+    button: Attribute.Component<'ui.button'> & Attribute.Required;
+    items: Attribute.Component<'item.inner-hero', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::inner-hero-section.inner-hero-section',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::inner-hero-section.inner-hero-section',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiLeakDetectionPageLeakDetectionPage
+  extends Schema.SingleType {
+  collectionName: 'leak_detection_pages';
+  info: {
+    singularName: 'leak-detection-page';
+    pluralName: 'leak-detection-pages';
+    displayName: 'Leak Detection Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    inner_hero_section: Attribute.Relation<
+      'api::leak-detection-page.leak-detection-page',
+      'oneToOne',
+      'api::inner-hero-section.inner-hero-section'
+    >;
+    content_section: Attribute.Relation<
+      'api::leak-detection-page.leak-detection-page',
+      'oneToOne',
+      'api::content-section.content-section'
+    >;
+    blog_section: Attribute.Relation<
+      'api::leak-detection-page.leak-detection-page',
+      'oneToOne',
+      'api::blog-section.blog-section'
+    >;
+    tips_section: Attribute.Relation<
+      'api::leak-detection-page.leak-detection-page',
+      'oneToOne',
+      'api::tips-section.tips-section'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::leak-detection-page.leak-detection-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::leak-detection-page.leak-detection-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPricingFeaturesSectionPricingFeaturesSection
+  extends Schema.CollectionType {
+  collectionName: 'pricing_features_sections';
+  info: {
+    singularName: 'pricing-features-section';
+    pluralName: 'pricing-features-sections';
+    displayName: 'Pricing Features Section';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    label: Attribute.String & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+    items: Attribute.Component<'item.pricing-features', true> &
+      Attribute.Required;
+    pricing_page_templates: Attribute.Relation<
+      'api::pricing-features-section.pricing-features-section',
+      'oneToMany',
+      'api::pricing-page-template.pricing-page-template'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::pricing-features-section.pricing-features-section',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::pricing-features-section.pricing-features-section',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPricingHeroSectionPricingHeroSection
+  extends Schema.CollectionType {
+  collectionName: 'pricing_hero_sections';
+  info: {
+    singularName: 'pricing-hero-section';
+    pluralName: 'pricing-hero-sections';
+    displayName: 'Pricing Hero Section';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    pricing_variant_sections: Attribute.Relation<
+      'api::pricing-hero-section.pricing-hero-section',
+      'manyToMany',
+      'api::pricing-variant-section.pricing-variant-section'
+    >;
+    pricing_page_templates: Attribute.Relation<
+      'api::pricing-hero-section.pricing-hero-section',
+      'oneToMany',
+      'api::pricing-page-template.pricing-page-template'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::pricing-hero-section.pricing-hero-section',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::pricing-hero-section.pricing-hero-section',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPricingPageTemplatePricingPageTemplate
+  extends Schema.CollectionType {
+  collectionName: 'pricing_page_templates';
+  info: {
+    singularName: 'pricing-page-template';
+    pluralName: 'pricing-page-templates';
+    displayName: 'Pricing Page Template';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    pricing_hero_section: Attribute.Relation<
+      'api::pricing-page-template.pricing-page-template',
+      'manyToOne',
+      'api::pricing-hero-section.pricing-hero-section'
+    >;
+    pricing_features_section: Attribute.Relation<
+      'api::pricing-page-template.pricing-page-template',
+      'manyToOne',
+      'api::pricing-features-section.pricing-features-section'
+    >;
+    faq_section: Attribute.Relation<
+      'api::pricing-page-template.pricing-page-template',
+      'manyToOne',
+      'api::faq-section.faq-section'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::pricing-page-template.pricing-page-template',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::pricing-page-template.pricing-page-template',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPricingVariantSectionPricingVariantSection
+  extends Schema.CollectionType {
+  collectionName: 'pricing_variant_sections';
+  info: {
+    singularName: 'pricing-variant-section';
+    pluralName: 'pricing-variant-sections';
+    displayName: 'Pricing Variant Section';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    icon: Attribute.Component<'ui.icon'> & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.String & Attribute.Required;
+    items: Attribute.Component<'item.pricing-plan', true> & Attribute.Required;
+    pricing_hero_sections: Attribute.Relation<
+      'api::pricing-variant-section.pricing-variant-section',
+      'manyToMany',
+      'api::pricing-hero-section.pricing-hero-section'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::pricing-variant-section.pricing-variant-section',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::pricing-variant-section.pricing-variant-section',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiReverseOsmosisPageReverseOsmosisPage
+  extends Schema.SingleType {
+  collectionName: 'reverse_osmosis_pages';
+  info: {
+    singularName: 'reverse-osmosis-page';
+    pluralName: 'reverse-osmosis-pages';
+    displayName: 'Reverse Osmosis Page';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    inner_hero_section: Attribute.Relation<
+      'api::reverse-osmosis-page.reverse-osmosis-page',
+      'oneToOne',
+      'api::inner-hero-section.inner-hero-section'
+    >;
+    content_section: Attribute.Relation<
+      'api::reverse-osmosis-page.reverse-osmosis-page',
+      'oneToOne',
+      'api::content-section.content-section'
+    >;
+    inner_features_section: Attribute.Relation<
+      'api::reverse-osmosis-page.reverse-osmosis-page',
+      'oneToOne',
+      'api::inner-features-section.inner-features-section'
+    >;
+    blog_section: Attribute.Relation<
+      'api::reverse-osmosis-page.reverse-osmosis-page',
+      'oneToOne',
+      'api::blog-section.blog-section'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::reverse-osmosis-page.reverse-osmosis-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::reverse-osmosis-page.reverse-osmosis-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiReverseOsmosisPricingPageReverseOsmosisPricingPage
+  extends Schema.SingleType {
+  collectionName: 'reverse_osmosis_pricing_pages';
+  info: {
+    singularName: 'reverse-osmosis-pricing-page';
+    pluralName: 'reverse-osmosis-pricing-pages';
+    displayName: 'Reverse Osmosis Pricing Page';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    pricing_page_template: Attribute.Relation<
+      'api::reverse-osmosis-pricing-page.reverse-osmosis-pricing-page',
+      'oneToOne',
+      'api::pricing-page-template.pricing-page-template'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::reverse-osmosis-pricing-page.reverse-osmosis-pricing-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::reverse-osmosis-pricing-page.reverse-osmosis-pricing-page',
       'oneToOne',
       'admin::user'
     > &
@@ -1027,6 +1455,120 @@ export interface ApiStepsSectionStepsSection extends Schema.CollectionType {
   };
 }
 
+export interface ApiTipsSectionTipsSection extends Schema.CollectionType {
+  collectionName: 'tips_sections';
+  info: {
+    singularName: 'tips-section';
+    pluralName: 'tips-sections';
+    displayName: 'Tips Section';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    items: Attribute.Component<'item.tips', true> & Attribute.Required;
+    button: Attribute.Component<'ui.button'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::tips-section.tips-section',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::tips-section.tips-section',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiWholeHomeFiltrationPageWholeHomeFiltrationPage
+  extends Schema.SingleType {
+  collectionName: 'whole_home_filtration_pages';
+  info: {
+    singularName: 'whole-home-filtration-page';
+    pluralName: 'whole-home-filtration-pages';
+    displayName: 'Whole Home Filtration Page';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    inner_hero_section: Attribute.Relation<
+      'api::whole-home-filtration-page.whole-home-filtration-page',
+      'oneToOne',
+      'api::inner-hero-section.inner-hero-section'
+    >;
+    content_section: Attribute.Relation<
+      'api::whole-home-filtration-page.whole-home-filtration-page',
+      'oneToOne',
+      'api::content-section.content-section'
+    >;
+    inner_features_section: Attribute.Relation<
+      'api::whole-home-filtration-page.whole-home-filtration-page',
+      'oneToOne',
+      'api::inner-features-section.inner-features-section'
+    >;
+    blog_section: Attribute.Relation<
+      'api::whole-home-filtration-page.whole-home-filtration-page',
+      'oneToOne',
+      'api::blog-section.blog-section'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::whole-home-filtration-page.whole-home-filtration-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::whole-home-filtration-page.whole-home-filtration-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiWholeHomeFiltrationPricingPageWholeHomeFiltrationPricingPage
+  extends Schema.SingleType {
+  collectionName: 'whole_home_filtration_pricing_pages';
+  info: {
+    singularName: 'whole-home-filtration-pricing-page';
+    pluralName: 'whole-home-filtration-pricing-pages';
+    displayName: 'Whole Home Filtration Pricing Page';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    pricing_page_template: Attribute.Relation<
+      'api::whole-home-filtration-pricing-page.whole-home-filtration-pricing-page',
+      'oneToOne',
+      'api::pricing-page-template.pricing-page-template'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::whole-home-filtration-pricing-page.whole-home-filtration-pricing-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::whole-home-filtration-pricing-page.whole-home-filtration-pricing-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1047,11 +1589,25 @@ declare module '@strapi/types' {
       'plugin::i18n.locale': PluginI18NLocale;
       'api::blog-section.blog-section': ApiBlogSectionBlogSection;
       'api::contacts-section.contacts-section': ApiContactsSectionContactsSection;
+      'api::content-section.content-section': ApiContentSectionContentSection;
+      'api::faq-section.faq-section': ApiFaqSectionFaqSection;
       'api::global.global': ApiGlobalGlobal;
-      'api::hero-page.hero-page': ApiHeroPageHeroPage;
       'api::home-hero-section.home-hero-section': ApiHomeHeroSectionHomeHeroSection;
+      'api::home-page.home-page': ApiHomePageHomePage;
+      'api::inner-features-section.inner-features-section': ApiInnerFeaturesSectionInnerFeaturesSection;
+      'api::inner-hero-section.inner-hero-section': ApiInnerHeroSectionInnerHeroSection;
+      'api::leak-detection-page.leak-detection-page': ApiLeakDetectionPageLeakDetectionPage;
+      'api::pricing-features-section.pricing-features-section': ApiPricingFeaturesSectionPricingFeaturesSection;
+      'api::pricing-hero-section.pricing-hero-section': ApiPricingHeroSectionPricingHeroSection;
+      'api::pricing-page-template.pricing-page-template': ApiPricingPageTemplatePricingPageTemplate;
+      'api::pricing-variant-section.pricing-variant-section': ApiPricingVariantSectionPricingVariantSection;
+      'api::reverse-osmosis-page.reverse-osmosis-page': ApiReverseOsmosisPageReverseOsmosisPage;
+      'api::reverse-osmosis-pricing-page.reverse-osmosis-pricing-page': ApiReverseOsmosisPricingPageReverseOsmosisPricingPage;
       'api::services-section.services-section': ApiServicesSectionServicesSection;
       'api::steps-section.steps-section': ApiStepsSectionStepsSection;
+      'api::tips-section.tips-section': ApiTipsSectionTipsSection;
+      'api::whole-home-filtration-page.whole-home-filtration-page': ApiWholeHomeFiltrationPageWholeHomeFiltrationPage;
+      'api::whole-home-filtration-pricing-page.whole-home-filtration-pricing-page': ApiWholeHomeFiltrationPricingPageWholeHomeFiltrationPricingPage;
     }
   }
 }

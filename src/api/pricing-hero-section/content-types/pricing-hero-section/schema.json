@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pricing_hero_sections",
+  "info": {
+    "singularName": "pricing-hero-section",
+    "pluralName": "pricing-hero-sections",
+    "displayName": "Pricing Hero Section",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "pricing_variant_sections": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::pricing-variant-section.pricing-variant-section",
+      "inversedBy": "pricing_hero_sections"
+    },
+    "pricing_page_templates": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::pricing-page-template.pricing-page-template",
+      "mappedBy": "pricing_hero_section"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pricing_features_sections",
+  "info": {
+    "singularName": "pricing-features-section",
+    "pluralName": "pricing-features-sections",
+    "displayName": "Pricing Features Section"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "items": {
+      "displayName": "Pricing Features",
+      "type": "component",
+      "repeatable": true,
+      "component": "item.pricing-features",
+      "required": true
+    },
+    "pricing_page_templates": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::pricing-page-template.pricing-page-template",
+      "mappedBy": "pricing_features_section"
+    }
+  }
+}

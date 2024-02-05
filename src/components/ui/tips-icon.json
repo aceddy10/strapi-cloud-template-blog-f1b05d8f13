@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_ui_tips_icons",
+  "info": {
+    "displayName": "Tips Icon"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "enumeration",
+      "enum": [
+        "tips_detects",
+        "tips_alerts",
+        "tips_controls",
+        "tips_smart"
+      ],
+      "required": true
+    }
+  }
+}

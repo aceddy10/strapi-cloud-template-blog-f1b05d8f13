@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "leak_detection_pages",
+  "info": {
+    "singularName": "leak-detection-page",
+    "pluralName": "leak-detection-pages",
+    "displayName": "Leak Detection Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "inner_hero_section": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::inner-hero-section.inner-hero-section"
+    },
+    "content_section": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::content-section.content-section"
+    },
+    "blog_section": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::blog-section.blog-section"
+    },
+    "tips_section": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::tips-section.tips-section"
+    }
+  }
+}

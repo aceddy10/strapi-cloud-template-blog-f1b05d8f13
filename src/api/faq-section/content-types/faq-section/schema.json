@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "faq_sections",
+  "info": {
+    "singularName": "faq-section",
+    "pluralName": "faq-sections",
+    "displayName": "FAQ Section"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "items": {
+      "displayName": "FAQ",
+      "type": "component",
+      "repeatable": true,
+      "component": "item.faq",
+      "required": true
+    },
+    "pricing_page_templates": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::pricing-page-template.pricing-page-template",
+      "mappedBy": "faq_section"
+    }
+  }
+}

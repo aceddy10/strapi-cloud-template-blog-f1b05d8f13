@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "inner_features_sections",
+  "info": {
+    "singularName": "inner-features-section",
+    "pluralName": "inner-features-sections",
+    "displayName": "Inner Features Section"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "items": {
+      "displayName": "Inner Features",
+      "type": "component",
+      "repeatable": true,
+      "component": "item.inner-features",
+      "required": true
+    }
+  }
+}
