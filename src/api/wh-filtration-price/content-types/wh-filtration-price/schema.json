@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "wh_filtration_prices",
+  "info": {
+    "singularName": "wh-filtration-price",
+    "pluralName": "wh-filtration-prices",
+    "displayName": "WH Filtration Price"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pricing_page_template": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::pricing-page-template.pricing-page-template"
+    }
+  }
+}

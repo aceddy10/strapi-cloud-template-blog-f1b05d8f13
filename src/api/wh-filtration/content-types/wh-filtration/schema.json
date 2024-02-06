@@ -1,0 +1,35 @@
+{
+  "kind": "singleType",
+  "collectionName": "wh_filtrations",
+  "info": {
+    "singularName": "wh-filtration",
+    "pluralName": "wh-filtrations",
+    "displayName": "WH Filtration"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "inner_hero_section": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::inner-hero-section.inner-hero-section"
+    },
+    "content_section": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::content-section.content-section"
+    },
+    "inner_features_section": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::inner-features-section.inner-features-section"
+    },
+    "blog_section": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::blog-section.blog-section"
+    }
+  }
+}

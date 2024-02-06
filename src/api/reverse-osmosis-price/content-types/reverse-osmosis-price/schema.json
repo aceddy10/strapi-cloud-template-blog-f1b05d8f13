@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "reverse_osmosis_prices",
+  "info": {
+    "singularName": "reverse-osmosis-price",
+    "pluralName": "reverse-osmosis-prices",
+    "displayName": "Reverse Osmosis Price"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pricing_page_template": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::pricing-page-template.pricing-page-template"
+    }
+  }
+}

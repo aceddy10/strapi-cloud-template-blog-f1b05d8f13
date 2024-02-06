@@ -1095,49 +1095,47 @@ export interface ApiInnerHeroSectionInnerHeroSection
   };
 }
 
-export interface ApiLeakDetectionPageLeakDetectionPage
-  extends Schema.SingleType {
-  collectionName: 'leak_detection_pages';
+export interface ApiLeakDetectionLeakDetection extends Schema.SingleType {
+  collectionName: 'leak_detections';
   info: {
-    singularName: 'leak-detection-page';
-    pluralName: 'leak-detection-pages';
-    displayName: 'Leak Detection Page';
-    description: '';
+    singularName: 'leak-detection';
+    pluralName: 'leak-detections';
+    displayName: 'Leak Detection';
   };
   options: {
     draftAndPublish: false;
   };
   attributes: {
     inner_hero_section: Attribute.Relation<
-      'api::leak-detection-page.leak-detection-page',
+      'api::leak-detection.leak-detection',
       'oneToOne',
       'api::inner-hero-section.inner-hero-section'
     >;
     content_section: Attribute.Relation<
-      'api::leak-detection-page.leak-detection-page',
+      'api::leak-detection.leak-detection',
       'oneToOne',
       'api::content-section.content-section'
     >;
-    blog_section: Attribute.Relation<
-      'api::leak-detection-page.leak-detection-page',
-      'oneToOne',
-      'api::blog-section.blog-section'
-    >;
     tips_section: Attribute.Relation<
-      'api::leak-detection-page.leak-detection-page',
+      'api::leak-detection.leak-detection',
       'oneToOne',
       'api::tips-section.tips-section'
+    >;
+    blog_section: Attribute.Relation<
+      'api::leak-detection.leak-detection',
+      'oneToOne',
+      'api::blog-section.blog-section'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::leak-detection-page.leak-detection-page',
+      'api::leak-detection.leak-detection',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::leak-detection-page.leak-detection-page',
+      'api::leak-detection.leak-detection',
       'oneToOne',
       'admin::user'
     > &
@@ -1307,48 +1305,47 @@ export interface ApiPricingVariantSectionPricingVariantSection
   };
 }
 
-export interface ApiReverseOsmosisPageReverseOsmosisPage
-  extends Schema.SingleType {
-  collectionName: 'reverse_osmosis_pages';
+export interface ApiReverseOsmosisReverseOsmosis extends Schema.SingleType {
+  collectionName: 'reverse_osmoses';
   info: {
-    singularName: 'reverse-osmosis-page';
-    pluralName: 'reverse-osmosis-pages';
-    displayName: 'Reverse Osmosis Page';
+    singularName: 'reverse-osmosis';
+    pluralName: 'reverse-osmoses';
+    displayName: 'Reverse Osmosis';
   };
   options: {
     draftAndPublish: false;
   };
   attributes: {
     inner_hero_section: Attribute.Relation<
-      'api::reverse-osmosis-page.reverse-osmosis-page',
+      'api::reverse-osmosis.reverse-osmosis',
       'oneToOne',
       'api::inner-hero-section.inner-hero-section'
     >;
     content_section: Attribute.Relation<
-      'api::reverse-osmosis-page.reverse-osmosis-page',
+      'api::reverse-osmosis.reverse-osmosis',
       'oneToOne',
       'api::content-section.content-section'
     >;
     inner_features_section: Attribute.Relation<
-      'api::reverse-osmosis-page.reverse-osmosis-page',
+      'api::reverse-osmosis.reverse-osmosis',
       'oneToOne',
       'api::inner-features-section.inner-features-section'
     >;
     blog_section: Attribute.Relation<
-      'api::reverse-osmosis-page.reverse-osmosis-page',
+      'api::reverse-osmosis.reverse-osmosis',
       'oneToOne',
       'api::blog-section.blog-section'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::reverse-osmosis-page.reverse-osmosis-page',
+      'api::reverse-osmosis.reverse-osmosis',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::reverse-osmosis-page.reverse-osmosis-page',
+      'api::reverse-osmosis.reverse-osmosis',
       'oneToOne',
       'admin::user'
     > &
@@ -1356,33 +1353,33 @@ export interface ApiReverseOsmosisPageReverseOsmosisPage
   };
 }
 
-export interface ApiReverseOsmosisPricingPageReverseOsmosisPricingPage
+export interface ApiReverseOsmosisPriceReverseOsmosisPrice
   extends Schema.SingleType {
-  collectionName: 'reverse_osmosis_pricing_pages';
+  collectionName: 'reverse_osmosis_prices';
   info: {
-    singularName: 'reverse-osmosis-pricing-page';
-    pluralName: 'reverse-osmosis-pricing-pages';
-    displayName: 'Reverse Osmosis Pricing Page';
+    singularName: 'reverse-osmosis-price';
+    pluralName: 'reverse-osmosis-prices';
+    displayName: 'Reverse Osmosis Price';
   };
   options: {
     draftAndPublish: false;
   };
   attributes: {
     pricing_page_template: Attribute.Relation<
-      'api::reverse-osmosis-pricing-page.reverse-osmosis-pricing-page',
+      'api::reverse-osmosis-price.reverse-osmosis-price',
       'oneToOne',
       'api::pricing-page-template.pricing-page-template'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::reverse-osmosis-pricing-page.reverse-osmosis-pricing-page',
+      'api::reverse-osmosis-price.reverse-osmosis-price',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::reverse-osmosis-pricing-page.reverse-osmosis-pricing-page',
+      'api::reverse-osmosis-price.reverse-osmosis-price',
       'oneToOne',
       'admin::user'
     > &
@@ -1486,48 +1483,47 @@ export interface ApiTipsSectionTipsSection extends Schema.CollectionType {
   };
 }
 
-export interface ApiWholeHomeFiltrationPageWholeHomeFiltrationPage
-  extends Schema.SingleType {
-  collectionName: 'whole_home_filtration_pages';
+export interface ApiWhFiltrationWhFiltration extends Schema.SingleType {
+  collectionName: 'wh_filtrations';
   info: {
-    singularName: 'whole-home-filtration-page';
-    pluralName: 'whole-home-filtration-pages';
-    displayName: 'Whole Home Filtration Page';
+    singularName: 'wh-filtration';
+    pluralName: 'wh-filtrations';
+    displayName: 'WH Filtration';
   };
   options: {
     draftAndPublish: false;
   };
   attributes: {
     inner_hero_section: Attribute.Relation<
-      'api::whole-home-filtration-page.whole-home-filtration-page',
+      'api::wh-filtration.wh-filtration',
       'oneToOne',
       'api::inner-hero-section.inner-hero-section'
     >;
     content_section: Attribute.Relation<
-      'api::whole-home-filtration-page.whole-home-filtration-page',
+      'api::wh-filtration.wh-filtration',
       'oneToOne',
       'api::content-section.content-section'
     >;
     inner_features_section: Attribute.Relation<
-      'api::whole-home-filtration-page.whole-home-filtration-page',
+      'api::wh-filtration.wh-filtration',
       'oneToOne',
       'api::inner-features-section.inner-features-section'
     >;
     blog_section: Attribute.Relation<
-      'api::whole-home-filtration-page.whole-home-filtration-page',
+      'api::wh-filtration.wh-filtration',
       'oneToOne',
       'api::blog-section.blog-section'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::whole-home-filtration-page.whole-home-filtration-page',
+      'api::wh-filtration.wh-filtration',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::whole-home-filtration-page.whole-home-filtration-page',
+      'api::wh-filtration.wh-filtration',
       'oneToOne',
       'admin::user'
     > &
@@ -1535,33 +1531,33 @@ export interface ApiWholeHomeFiltrationPageWholeHomeFiltrationPage
   };
 }
 
-export interface ApiWholeHomeFiltrationPricingPageWholeHomeFiltrationPricingPage
+export interface ApiWhFiltrationPriceWhFiltrationPrice
   extends Schema.SingleType {
-  collectionName: 'whole_home_filtration_pricing_pages';
+  collectionName: 'wh_filtration_prices';
   info: {
-    singularName: 'whole-home-filtration-pricing-page';
-    pluralName: 'whole-home-filtration-pricing-pages';
-    displayName: 'Whole Home Filtration Pricing Page';
+    singularName: 'wh-filtration-price';
+    pluralName: 'wh-filtration-prices';
+    displayName: 'WH Filtration Price';
   };
   options: {
     draftAndPublish: false;
   };
   attributes: {
     pricing_page_template: Attribute.Relation<
-      'api::whole-home-filtration-pricing-page.whole-home-filtration-pricing-page',
+      'api::wh-filtration-price.wh-filtration-price',
       'oneToOne',
       'api::pricing-page-template.pricing-page-template'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::whole-home-filtration-pricing-page.whole-home-filtration-pricing-page',
+      'api::wh-filtration-price.wh-filtration-price',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::whole-home-filtration-pricing-page.whole-home-filtration-pricing-page',
+      'api::wh-filtration-price.wh-filtration-price',
       'oneToOne',
       'admin::user'
     > &
@@ -1596,18 +1592,18 @@ declare module '@strapi/types' {
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::inner-features-section.inner-features-section': ApiInnerFeaturesSectionInnerFeaturesSection;
       'api::inner-hero-section.inner-hero-section': ApiInnerHeroSectionInnerHeroSection;
-      'api::leak-detection-page.leak-detection-page': ApiLeakDetectionPageLeakDetectionPage;
+      'api::leak-detection.leak-detection': ApiLeakDetectionLeakDetection;
       'api::pricing-features-section.pricing-features-section': ApiPricingFeaturesSectionPricingFeaturesSection;
       'api::pricing-hero-section.pricing-hero-section': ApiPricingHeroSectionPricingHeroSection;
       'api::pricing-page-template.pricing-page-template': ApiPricingPageTemplatePricingPageTemplate;
       'api::pricing-variant-section.pricing-variant-section': ApiPricingVariantSectionPricingVariantSection;
-      'api::reverse-osmosis-page.reverse-osmosis-page': ApiReverseOsmosisPageReverseOsmosisPage;
-      'api::reverse-osmosis-pricing-page.reverse-osmosis-pricing-page': ApiReverseOsmosisPricingPageReverseOsmosisPricingPage;
+      'api::reverse-osmosis.reverse-osmosis': ApiReverseOsmosisReverseOsmosis;
+      'api::reverse-osmosis-price.reverse-osmosis-price': ApiReverseOsmosisPriceReverseOsmosisPrice;
       'api::services-section.services-section': ApiServicesSectionServicesSection;
       'api::steps-section.steps-section': ApiStepsSectionStepsSection;
       'api::tips-section.tips-section': ApiTipsSectionTipsSection;
-      'api::whole-home-filtration-page.whole-home-filtration-page': ApiWholeHomeFiltrationPageWholeHomeFiltrationPage;
-      'api::whole-home-filtration-pricing-page.whole-home-filtration-pricing-page': ApiWholeHomeFiltrationPricingPageWholeHomeFiltrationPricingPage;
+      'api::wh-filtration.wh-filtration': ApiWhFiltrationWhFiltration;
+      'api::wh-filtration-price.wh-filtration-price': ApiWhFiltrationPriceWhFiltrationPrice;
     }
   }
 }
