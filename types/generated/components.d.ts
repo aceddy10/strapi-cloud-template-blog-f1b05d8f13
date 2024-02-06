@@ -209,6 +209,7 @@ export interface UiIcon extends Schema.Component {
   collectionName: 'components_ui_icons';
   info: {
     displayName: 'Icon';
+    description: '';
   };
   attributes: {
     name: Attribute.Enumeration<
@@ -231,7 +232,14 @@ export interface UiIcon extends Schema.Component {
         'washer',
         'water_mixer',
         'wifi',
-        'wine'
+        'wine',
+        'hammer',
+        'shield_protected',
+        'battery_charging',
+        'tips_smart',
+        'tips_alerts',
+        'tips_detects',
+        'tips_controls'
       ]
     > &
       Attribute.Required;
