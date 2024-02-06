@@ -236,10 +236,8 @@ export interface UiIcon extends Schema.Component {
         'hammer',
         'shield_protected',
         'battery_charging',
-        'tips_smart',
-        'tips_alerts',
-        'tips_detects',
-        'tips_controls'
+        'pricing_ro',
+        'pricing_non_ro'
       ]
     > &
       Attribute.Required;
