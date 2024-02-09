@@ -4,10 +4,22 @@ export interface ItemBlog extends Schema.Component {
   collectionName: 'components_item_blogs';
   info: {
     displayName: 'Blog';
+    description: '';
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
     image: Attribute.Media & Attribute.Required;
+    href: Attribute.String & Attribute.Required;
+  };
+}
+
+export interface ItemContactsInterest extends Schema.Component {
+  collectionName: 'components_item_contacts_interests';
+  info: {
+    displayName: 'Contacts Interest';
+  };
+  attributes: {
+    text: Attribute.String & Attribute.Required;
   };
 }
 
@@ -271,6 +283,7 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'item.blog': ItemBlog;
+      'item.contacts-interest': ItemContactsInterest;
       'item.content': ItemContent;
       'item.faq': ItemFaq;
       'item.inner-features': ItemInnerFeatures;

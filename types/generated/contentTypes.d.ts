@@ -813,6 +813,73 @@ export interface ApiBlogSectionBlogSection extends Schema.CollectionType {
   };
 }
 
+export interface ApiContactContact extends Schema.CollectionType {
+  collectionName: 'contacts';
+  info: {
+    singularName: 'contact';
+    pluralName: 'contacts';
+    displayName: 'Contact';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    email: Attribute.String & Attribute.Required;
+    name: Attribute.String & Attribute.Required;
+    phone: Attribute.String;
+    interest: Attribute.String;
+    message: Attribute.Text & Attribute.Required;
+    status: Attribute.Enumeration<['new', 'completed']> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::contact.contact',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::contact.contact',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiContactsPageContactsPage extends Schema.SingleType {
+  collectionName: 'contacts_pages';
+  info: {
+    singularName: 'contacts-page';
+    pluralName: 'contacts-pages';
+    displayName: 'Contacts Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    footnote: Attribute.Text;
+    interest: Attribute.Component<'item.contacts-interest', true> &
+      Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::contacts-page.contacts-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::contacts-page.contacts-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiContactsSectionContactsSection extends Schema.SingleType {
   collectionName: 'contacts_sections';
   info: {
@@ -1584,6 +1651,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
       'api::blog-section.blog-section': ApiBlogSectionBlogSection;
+      'api::contact.contact': ApiContactContact;
+      'api::contacts-page.contacts-page': ApiContactsPageContactsPage;
       'api::contacts-section.contacts-section': ApiContactsSectionContactsSection;
       'api::content-section.content-section': ApiContentSectionContentSection;
       'api::faq-section.faq-section': ApiFaqSectionFaqSection;

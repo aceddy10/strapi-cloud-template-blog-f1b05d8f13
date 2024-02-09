@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_item_contacts_interests",
+  "info": {
+    "displayName": "Contacts Interest"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

@@ -1,7 +1,8 @@
 {
   "collectionName": "components_item_blogs",
   "info": {
-    "displayName": "Blog"
+    "displayName": "Blog",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -10,11 +11,15 @@
       "required": true
     },
     "image": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "href": {
+      "type": "string",
       "required": true
     }
   }

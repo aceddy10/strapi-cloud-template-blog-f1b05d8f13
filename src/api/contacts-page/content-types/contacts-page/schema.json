@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "contacts_pages",
+  "info": {
+    "singularName": "contacts-page",
+    "pluralName": "contacts-pages",
+    "displayName": "Contacts Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "footnote": {
+      "type": "text",
+      "required": false
+    },
+    "interest": {
+      "displayName": "Contacts Interest",
+      "type": "component",
+      "repeatable": true,
+      "component": "item.contacts-interest",
+      "required": true
+    }
+  }
+}
