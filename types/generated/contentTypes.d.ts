@@ -863,6 +863,7 @@ export interface ApiContactsPageContactsPage extends Schema.SingleType {
     footnote: Attribute.Text;
     interest: Attribute.Component<'item.contacts-interest', true> &
       Attribute.Required;
+    seo: Attribute.Component<'shared.seo'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -993,7 +994,6 @@ export interface ApiGlobalGlobal extends Schema.SingleType {
   };
   attributes: {
     siteName: Attribute.String & Attribute.Required;
-    favicon: Attribute.Media;
     siteDescription: Attribute.Text & Attribute.Required;
     defaultSeo: Attribute.Component<'shared.seo'>;
     createdAt: Attribute.DateTime;
@@ -1052,6 +1052,7 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
     singularName: 'home-page';
     pluralName: 'home-pages';
     displayName: 'Home Page';
+    description: '';
   };
   options: {
     draftAndPublish: false;
@@ -1077,6 +1078,7 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
       'oneToOne',
       'api::steps-section.steps-section'
     >;
+    seo: Attribute.Component<'shared.seo'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1168,6 +1170,7 @@ export interface ApiLeakDetectionLeakDetection extends Schema.SingleType {
     singularName: 'leak-detection';
     pluralName: 'leak-detections';
     displayName: 'Leak Detection';
+    description: '';
   };
   options: {
     draftAndPublish: false;
@@ -1193,6 +1196,7 @@ export interface ApiLeakDetectionLeakDetection extends Schema.SingleType {
       'oneToOne',
       'api::blog-section.blog-section'
     >;
+    seo: Attribute.Component<'shared.seo'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1334,6 +1338,54 @@ export interface ApiPricingPageTemplatePricingPageTemplate
   };
 }
 
+export interface ApiPricingPlanPricingPlan extends Schema.CollectionType {
+  collectionName: 'pricing_plans';
+  info: {
+    singularName: 'pricing-plan';
+    pluralName: 'pricing-plans';
+    displayName: 'Pricing Plan';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    price: Attribute.Float & Attribute.Required & Attribute.DefaultTo<0>;
+    installation: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    list: Attribute.Component<'ui.list-item', true>;
+    type: Attribute.Enumeration<['primary', 'secondary', 'tertiary']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'primary'>;
+    pricing_variant_sections: Attribute.Relation<
+      'api::pricing-plan.pricing-plan',
+      'manyToMany',
+      'api::pricing-variant-section.pricing-variant-section'
+    >;
+    products: Attribute.Relation<
+      'api::pricing-plan.pricing-plan',
+      'manyToMany',
+      'api::product.product'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::pricing-plan.pricing-plan',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::pricing-plan.pricing-plan',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPricingVariantSectionPricingVariantSection
   extends Schema.CollectionType {
   collectionName: 'pricing_variant_sections';
@@ -1341,6 +1393,7 @@ export interface ApiPricingVariantSectionPricingVariantSection
     singularName: 'pricing-variant-section';
     pluralName: 'pricing-variant-sections';
     displayName: 'Pricing Variant Section';
+    description: '';
   };
   options: {
     draftAndPublish: false;
@@ -1349,11 +1402,15 @@ export interface ApiPricingVariantSectionPricingVariantSection
     icon: Attribute.Component<'ui.icon'> & Attribute.Required;
     title: Attribute.String & Attribute.Required;
     description: Attribute.String & Attribute.Required;
-    items: Attribute.Component<'item.pricing-plan', true> & Attribute.Required;
     pricing_hero_sections: Attribute.Relation<
       'api::pricing-variant-section.pricing-variant-section',
       'manyToMany',
       'api::pricing-hero-section.pricing-hero-section'
+    >;
+    pricing_plans: Attribute.Relation<
+      'api::pricing-variant-section.pricing-variant-section',
+      'manyToMany',
+      'api::pricing-plan.pricing-plan'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1372,12 +1429,51 @@ export interface ApiPricingVariantSectionPricingVariantSection
   };
 }
 
+export interface ApiProductProduct extends Schema.CollectionType {
+  collectionName: 'products';
+  info: {
+    singularName: 'product';
+    pluralName: 'products';
+    displayName: 'Product';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    meta: Attribute.String;
+    price: Attribute.Float & Attribute.Required & Attribute.DefaultTo<0>;
+    price_with_discount: Attribute.Float & Attribute.DefaultTo<0>;
+    preview: Attribute.Media & Attribute.Required;
+    pricing_plans: Attribute.Relation<
+      'api::product.product',
+      'manyToMany',
+      'api::pricing-plan.pricing-plan'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::product.product',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::product.product',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiReverseOsmosisReverseOsmosis extends Schema.SingleType {
   collectionName: 'reverse_osmoses';
   info: {
     singularName: 'reverse-osmosis';
     pluralName: 'reverse-osmoses';
     displayName: 'Reverse Osmosis';
+    description: '';
   };
   options: {
     draftAndPublish: false;
@@ -1403,6 +1499,7 @@ export interface ApiReverseOsmosisReverseOsmosis extends Schema.SingleType {
       'oneToOne',
       'api::blog-section.blog-section'
     >;
+    seo: Attribute.Component<'shared.seo'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1427,6 +1524,7 @@ export interface ApiReverseOsmosisPriceReverseOsmosisPrice
     singularName: 'reverse-osmosis-price';
     pluralName: 'reverse-osmosis-prices';
     displayName: 'Reverse Osmosis Price';
+    description: '';
   };
   options: {
     draftAndPublish: false;
@@ -1437,6 +1535,7 @@ export interface ApiReverseOsmosisPriceReverseOsmosisPrice
       'oneToOne',
       'api::pricing-page-template.pricing-page-template'
     >;
+    seo: Attribute.Component<'shared.seo'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1556,6 +1655,7 @@ export interface ApiWhFiltrationWhFiltration extends Schema.SingleType {
     singularName: 'wh-filtration';
     pluralName: 'wh-filtrations';
     displayName: 'WH Filtration';
+    description: '';
   };
   options: {
     draftAndPublish: false;
@@ -1581,6 +1681,7 @@ export interface ApiWhFiltrationWhFiltration extends Schema.SingleType {
       'oneToOne',
       'api::blog-section.blog-section'
     >;
+    seo: Attribute.Component<'shared.seo'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1605,6 +1706,7 @@ export interface ApiWhFiltrationPriceWhFiltrationPrice
     singularName: 'wh-filtration-price';
     pluralName: 'wh-filtration-prices';
     displayName: 'WH Filtration Price';
+    description: '';
   };
   options: {
     draftAndPublish: false;
@@ -1615,6 +1717,7 @@ export interface ApiWhFiltrationPriceWhFiltrationPrice
       'oneToOne',
       'api::pricing-page-template.pricing-page-template'
     >;
+    seo: Attribute.Component<'shared.seo'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1665,7 +1768,9 @@ declare module '@strapi/types' {
       'api::pricing-features-section.pricing-features-section': ApiPricingFeaturesSectionPricingFeaturesSection;
       'api::pricing-hero-section.pricing-hero-section': ApiPricingHeroSectionPricingHeroSection;
       'api::pricing-page-template.pricing-page-template': ApiPricingPageTemplatePricingPageTemplate;
+      'api::pricing-plan.pricing-plan': ApiPricingPlanPricingPlan;
       'api::pricing-variant-section.pricing-variant-section': ApiPricingVariantSectionPricingVariantSection;
+      'api::product.product': ApiProductProduct;
       'api::reverse-osmosis.reverse-osmosis': ApiReverseOsmosisReverseOsmosis;
       'api::reverse-osmosis-price.reverse-osmosis-price': ApiReverseOsmosisPriceReverseOsmosisPrice;
       'api::services-section.services-section': ApiServicesSectionServicesSection;

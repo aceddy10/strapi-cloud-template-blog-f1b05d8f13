@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pricing_plans",
+  "info": {
+    "singularName": "pricing-plan",
+    "pluralName": "pricing-plans",
+    "displayName": "Pricing Plan",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "price": {
+      "type": "float",
+      "required": true,
+      "default": 0
+    },
+    "installation": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "list": {
+      "type": "component",
+      "repeatable": true,
+      "component": "ui.list-item"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "primary",
+        "secondary",
+        "tertiary"
+      ],
+      "default": "primary",
+      "required": true
+    },
+    "pricing_variant_sections": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::pricing-variant-section.pricing-variant-section",
+      "inversedBy": "pricing_plans"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product",
+      "inversedBy": "pricing_plans"
+    }
+  }
+}

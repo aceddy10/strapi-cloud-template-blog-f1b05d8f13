@@ -4,7 +4,8 @@
   "info": {
     "singularName": "leak-detection",
     "pluralName": "leak-detections",
-    "displayName": "Leak Detection"
+    "displayName": "Leak Detection",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -30,6 +31,11 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::blog-section.blog-section"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
     }
   }
 }

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "pricing-variant-section",
     "pluralName": "pricing-variant-sections",
-    "displayName": "Pricing Variant Section"
+    "displayName": "Pricing Variant Section",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -25,17 +26,16 @@
       "type": "string",
       "required": true
     },
-    "items": {
-      "displayName": "Pricing Plan",
-      "type": "component",
-      "repeatable": true,
-      "component": "item.pricing-plan",
-      "required": true
-    },
     "pricing_hero_sections": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::pricing-hero-section.pricing-hero-section",
+      "mappedBy": "pricing_variant_sections"
+    },
+    "pricing_plans": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::pricing-plan.pricing-plan",
       "mappedBy": "pricing_variant_sections"
     }
   }

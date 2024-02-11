@@ -4,7 +4,8 @@
   "info": {
     "singularName": "reverse-osmosis-price",
     "pluralName": "reverse-osmosis-prices",
-    "displayName": "Reverse Osmosis Price"
+    "displayName": "Reverse Osmosis Price",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -15,6 +16,11 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::pricing-page-template.pricing-page-template"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
     }
   }
 }

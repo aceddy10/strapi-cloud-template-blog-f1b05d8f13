@@ -4,7 +4,8 @@
   "info": {
     "singularName": "wh-filtration",
     "pluralName": "wh-filtrations",
-    "displayName": "WH Filtration"
+    "displayName": "WH Filtration",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -30,6 +31,11 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::blog-section.blog-section"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
     }
   }
 }

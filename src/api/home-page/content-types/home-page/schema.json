@@ -4,7 +4,8 @@
   "info": {
     "singularName": "home-page",
     "pluralName": "home-pages",
-    "displayName": "Home Page"
+    "displayName": "Home Page",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -30,6 +31,11 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::steps-section.steps-section"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
     }
   }
 }
