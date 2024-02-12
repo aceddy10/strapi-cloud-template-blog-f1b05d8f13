@@ -1444,7 +1444,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
     name: Attribute.String & Attribute.Required;
     meta: Attribute.String;
     price: Attribute.Float & Attribute.Required & Attribute.DefaultTo<0>;
-    price_with_discount: Attribute.Float & Attribute.DefaultTo<0>;
+    discount: Attribute.Float & Attribute.DefaultTo<0>;
     preview: Attribute.Media & Attribute.Required;
     pricing_plans: Attribute.Relation<
       'api::product.product',
@@ -1452,7 +1452,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
       'api::pricing-plan.pricing-plan'
     >;
     label: Attribute.String & Attribute.Required;
-    image_fit: Attribute.Enumeration<['cover', 'contain']> &
+    preview_object_fit: Attribute.Enumeration<['cover', 'contain']> &
       Attribute.Required &
       Attribute.DefaultTo<'cover'>;
     createdAt: Attribute.DateTime;

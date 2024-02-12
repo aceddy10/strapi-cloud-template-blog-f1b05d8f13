@@ -25,7 +25,7 @@
       "required": true,
       "default": 0
     },
-    "price_with_discount": {
+    "discount": {
       "type": "float",
       "required": false,
       "default": 0
@@ -48,7 +48,7 @@
       "type": "string",
       "required": true
     },
-    "image_fit": {
+    "preview_object_fit": {
       "type": "enumeration",
       "enum": [
         "cover",
