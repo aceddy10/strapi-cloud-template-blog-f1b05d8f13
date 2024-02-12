@@ -4,7 +4,8 @@
   "info": {
     "singularName": "product",
     "pluralName": "products",
-    "displayName": "Product"
+    "displayName": "Product",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -30,18 +31,31 @@
       "default": 0
     },
     "preview": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "pricing_plans": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::pricing-plan.pricing-plan",
       "mappedBy": "products"
+    },
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "image_fit": {
+      "type": "enumeration",
+      "enum": [
+        "cover",
+        "contain"
+      ],
+      "default": "cover",
+      "required": true
     }
   }
 }

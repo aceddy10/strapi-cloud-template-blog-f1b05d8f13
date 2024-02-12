@@ -1435,6 +1435,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
     singularName: 'product';
     pluralName: 'products';
     displayName: 'Product';
+    description: '';
   };
   options: {
     draftAndPublish: false;
@@ -1450,6 +1451,10 @@ export interface ApiProductProduct extends Schema.CollectionType {
       'manyToMany',
       'api::pricing-plan.pricing-plan'
     >;
+    label: Attribute.String & Attribute.Required;
+    image_fit: Attribute.Enumeration<['cover', 'contain']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'cover'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
