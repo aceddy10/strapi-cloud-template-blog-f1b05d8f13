@@ -1369,6 +1369,7 @@ export interface ApiPricingPlanPricingPlan extends Schema.CollectionType {
       'manyToMany',
       'api::product.product'
     >;
+    deposit: Attribute.Float & Attribute.Required & Attribute.DefaultTo<0>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
