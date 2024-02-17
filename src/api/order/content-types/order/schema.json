@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "singularName": "order",
+    "pluralName": "orders",
+    "displayName": "Order"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "address": {
+      "type": "string",
+      "required": true
+    },
+    "payment_id": {
+      "type": "string",
+      "required": true
+    },
+    "pricing_plan": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::pricing-plan.pricing-plan",
+      "inversedBy": "orders"
+    }
+  }
+}

@@ -57,6 +57,12 @@
       "required": true,
       "default": 0,
       "type": "float"
+    },
+    "orders": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::order.order",
+      "mappedBy": "pricing_plan"
     }
   }
 }

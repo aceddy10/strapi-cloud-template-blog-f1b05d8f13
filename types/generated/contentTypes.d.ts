@@ -1214,6 +1214,42 @@ export interface ApiLeakDetectionLeakDetection extends Schema.SingleType {
   };
 }
 
+export interface ApiOrderOrder extends Schema.CollectionType {
+  collectionName: 'orders';
+  info: {
+    singularName: 'order';
+    pluralName: 'orders';
+    displayName: 'Order';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    address: Attribute.String & Attribute.Required;
+    payment_id: Attribute.String & Attribute.Required;
+    pricing_plan: Attribute.Relation<
+      'api::order.order',
+      'manyToOne',
+      'api::pricing-plan.pricing-plan'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::order.order',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::order.order',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPricingFeaturesSectionPricingFeaturesSection
   extends Schema.CollectionType {
   collectionName: 'pricing_features_sections';
@@ -1370,6 +1406,11 @@ export interface ApiPricingPlanPricingPlan extends Schema.CollectionType {
       'api::product.product'
     >;
     deposit: Attribute.Float & Attribute.Required & Attribute.DefaultTo<0>;
+    orders: Attribute.Relation<
+      'api::pricing-plan.pricing-plan',
+      'oneToMany',
+      'api::order.order'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1771,6 +1812,7 @@ declare module '@strapi/types' {
       'api::inner-features-section.inner-features-section': ApiInnerFeaturesSectionInnerFeaturesSection;
       'api::inner-hero-section.inner-hero-section': ApiInnerHeroSectionInnerHeroSection;
       'api::leak-detection.leak-detection': ApiLeakDetectionLeakDetection;
+      'api::order.order': ApiOrderOrder;
       'api::pricing-features-section.pricing-features-section': ApiPricingFeaturesSectionPricingFeaturesSection;
       'api::pricing-hero-section.pricing-hero-section': ApiPricingHeroSectionPricingHeroSection;
       'api::pricing-page-template.pricing-page-template': ApiPricingPageTemplatePricingPageTemplate;
