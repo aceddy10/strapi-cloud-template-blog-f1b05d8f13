@@ -77,12 +77,12 @@
       "inversedBy": "opposite_pricing_plan"
     },
     "service_image": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "service_name": {
       "type": "string"
@@ -90,6 +90,10 @@
     "installation_accessories": {
       "type": "boolean",
       "default": false,
+      "required": true
+    },
+    "service_label": {
+      "type": "string",
       "required": true
     }
   }
