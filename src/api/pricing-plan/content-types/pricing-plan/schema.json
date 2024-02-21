@@ -60,9 +60,37 @@
     },
     "orders": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::order.order",
-      "mappedBy": "pricing_plan"
+      "mappedBy": "pricing_plans"
+    },
+    "opposite_pricing_plan": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::pricing-plan.pricing-plan",
+      "inversedBy": "pricing_plan"
+    },
+    "pricing_plan": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::pricing-plan.pricing-plan",
+      "inversedBy": "opposite_pricing_plan"
+    },
+    "service_image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "service_name": {
+      "type": "string"
+    },
+    "installation_accessories": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }

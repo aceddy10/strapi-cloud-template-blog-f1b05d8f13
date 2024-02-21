@@ -4,7 +4,8 @@
   "info": {
     "singularName": "order",
     "pluralName": "orders",
-    "displayName": "Order"
+    "displayName": "Order",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -19,9 +20,9 @@
       "type": "string",
       "required": true
     },
-    "pricing_plan": {
+    "pricing_plans": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::pricing-plan.pricing-plan",
       "inversedBy": "orders"
     }

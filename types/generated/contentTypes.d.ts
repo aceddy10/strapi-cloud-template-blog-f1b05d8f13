@@ -1220,6 +1220,7 @@ export interface ApiOrderOrder extends Schema.CollectionType {
     singularName: 'order';
     pluralName: 'orders';
     displayName: 'Order';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1227,9 +1228,9 @@ export interface ApiOrderOrder extends Schema.CollectionType {
   attributes: {
     address: Attribute.String & Attribute.Required;
     payment_id: Attribute.String & Attribute.Required;
-    pricing_plan: Attribute.Relation<
+    pricing_plans: Attribute.Relation<
       'api::order.order',
-      'manyToOne',
+      'manyToMany',
       'api::pricing-plan.pricing-plan'
     >;
     createdAt: Attribute.DateTime;
@@ -1408,9 +1409,24 @@ export interface ApiPricingPlanPricingPlan extends Schema.CollectionType {
     deposit: Attribute.Float & Attribute.Required & Attribute.DefaultTo<0>;
     orders: Attribute.Relation<
       'api::pricing-plan.pricing-plan',
-      'oneToMany',
+      'manyToMany',
       'api::order.order'
     >;
+    opposite_pricing_plan: Attribute.Relation<
+      'api::pricing-plan.pricing-plan',
+      'oneToOne',
+      'api::pricing-plan.pricing-plan'
+    >;
+    pricing_plan: Attribute.Relation<
+      'api::pricing-plan.pricing-plan',
+      'oneToOne',
+      'api::pricing-plan.pricing-plan'
+    >;
+    service_image: Attribute.Media & Attribute.Required;
+    service_name: Attribute.String;
+    installation_accessories: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
