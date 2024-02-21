@@ -64,19 +64,12 @@
       "target": "api::order.order",
       "mappedBy": "pricing_plans"
     },
-    "opposite_pricing_plan": {
+    "opposite_service": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::pricing-plan.pricing-plan",
-      "inversedBy": "pricing_plan"
+      "target": "api::pricing-plan.pricing-plan"
     },
-    "pricing_plan": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::pricing-plan.pricing-plan",
-      "inversedBy": "opposite_pricing_plan"
-    },
-    "service_image": {
+    "success_service_image": {
       "type": "media",
       "multiple": false,
       "required": true,
@@ -84,7 +77,7 @@
         "images"
       ]
     },
-    "service_name": {
+    "success_service_name": {
       "type": "string"
     },
     "installation_accessories": {
@@ -92,7 +85,7 @@
       "default": false,
       "required": true
     },
-    "service_label": {
+    "success_service_label": {
       "type": "string",
       "required": true
     },

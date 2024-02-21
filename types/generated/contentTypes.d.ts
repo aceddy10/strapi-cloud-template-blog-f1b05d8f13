@@ -1412,22 +1412,17 @@ export interface ApiPricingPlanPricingPlan extends Schema.CollectionType {
       'manyToMany',
       'api::order.order'
     >;
-    opposite_pricing_plan: Attribute.Relation<
+    opposite_service: Attribute.Relation<
       'api::pricing-plan.pricing-plan',
       'oneToOne',
       'api::pricing-plan.pricing-plan'
     >;
-    pricing_plan: Attribute.Relation<
-      'api::pricing-plan.pricing-plan',
-      'oneToOne',
-      'api::pricing-plan.pricing-plan'
-    >;
-    service_image: Attribute.Media & Attribute.Required;
-    service_name: Attribute.String;
+    success_service_image: Attribute.Media & Attribute.Required;
+    success_service_name: Attribute.String;
     installation_accessories: Attribute.Boolean &
       Attribute.Required &
       Attribute.DefaultTo<false>;
-    service_label: Attribute.String & Attribute.Required;
+    success_service_label: Attribute.String & Attribute.Required;
     how_to_href: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
