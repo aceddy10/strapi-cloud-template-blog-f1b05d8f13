@@ -1427,6 +1427,7 @@ export interface ApiPricingPlanPricingPlan extends Schema.CollectionType {
     installation_accessories: Attribute.Boolean &
       Attribute.Required &
       Attribute.DefaultTo<false>;
+    service_label: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
