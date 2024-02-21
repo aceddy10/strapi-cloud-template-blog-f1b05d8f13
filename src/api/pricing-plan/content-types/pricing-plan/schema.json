@@ -95,6 +95,9 @@
     "service_label": {
       "type": "string",
       "required": true
+    },
+    "how_to_href": {
+      "type": "string"
     }
   }
 }
