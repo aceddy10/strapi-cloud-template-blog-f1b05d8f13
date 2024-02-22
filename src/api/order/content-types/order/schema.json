@@ -25,6 +25,10 @@
       "relation": "manyToMany",
       "target": "api::pricing-plan.pricing-plan",
       "inversedBy": "orders"
+    },
+    "calendly_booked": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

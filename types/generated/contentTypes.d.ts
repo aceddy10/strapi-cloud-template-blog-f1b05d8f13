@@ -1233,6 +1233,7 @@ export interface ApiOrderOrder extends Schema.CollectionType {
       'manyToMany',
       'api::pricing-plan.pricing-plan'
     >;
+    calendly_booked: Attribute.Boolean & Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
