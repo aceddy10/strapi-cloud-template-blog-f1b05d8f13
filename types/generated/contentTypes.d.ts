@@ -1234,6 +1234,7 @@ export interface ApiOrderOrder extends Schema.CollectionType {
       'api::pricing-plan.pricing-plan'
     >;
     calendly_booked: Attribute.Boolean & Attribute.DefaultTo<false>;
+    token: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

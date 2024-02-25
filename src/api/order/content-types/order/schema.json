@@ -29,6 +29,10 @@
     "calendly_booked": {
       "type": "boolean",
       "default": false
+    },
+    "token": {
+      "type": "string",
+      "required": true
     }
   }
 }
