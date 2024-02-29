@@ -91,6 +91,13 @@
     },
     "how_to_href": {
       "type": "string"
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
