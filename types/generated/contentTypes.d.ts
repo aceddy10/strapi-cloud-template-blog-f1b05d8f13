@@ -1427,6 +1427,9 @@ export interface ApiPricingPlanPricingPlan extends Schema.CollectionType {
     success_service_label: Attribute.String & Attribute.Required;
     how_to_href: Attribute.String;
     image: Attribute.Media;
+    how_to_text: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'How to prepare'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
