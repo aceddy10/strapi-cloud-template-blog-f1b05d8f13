@@ -104,6 +104,10 @@
       "type": "string",
       "required": true,
       "default": "How to prepare"
+    },
+    "calendly_schedule_url": {
+      "type": "string",
+      "required": true
     }
   }
 }

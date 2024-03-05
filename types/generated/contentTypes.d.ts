@@ -1430,6 +1430,7 @@ export interface ApiPricingPlanPricingPlan extends Schema.CollectionType {
     how_to_text: Attribute.String &
       Attribute.Required &
       Attribute.DefaultTo<'How to prepare'>;
+    calendly_schedule_url: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
