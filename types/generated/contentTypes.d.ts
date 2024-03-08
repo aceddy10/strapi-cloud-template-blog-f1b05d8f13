@@ -1164,6 +1164,41 @@ export interface ApiInnerHeroSectionInnerHeroSection
   };
 }
 
+export interface ApiInstallationPriceInstallationPrice
+  extends Schema.SingleType {
+  collectionName: 'installation_prices';
+  info: {
+    singularName: 'installation-price';
+    pluralName: 'installation-prices';
+    displayName: 'Installation Price';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    pricing_page_template: Attribute.Relation<
+      'api::installation-price.installation-price',
+      'oneToOne',
+      'api::pricing-page-template.pricing-page-template'
+    >;
+    seo: Attribute.Component<'shared.seo'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::installation-price.installation-price',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::installation-price.installation-price',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiLeakDetectionLeakDetection extends Schema.SingleType {
   collectionName: 'leak_detections';
   info: {
@@ -1831,6 +1866,7 @@ declare module '@strapi/types' {
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::inner-features-section.inner-features-section': ApiInnerFeaturesSectionInnerFeaturesSection;
       'api::inner-hero-section.inner-hero-section': ApiInnerHeroSectionInnerHeroSection;
+      'api::installation-price.installation-price': ApiInstallationPriceInstallationPrice;
       'api::leak-detection.leak-detection': ApiLeakDetectionLeakDetection;
       'api::order.order': ApiOrderOrder;
       'api::pricing-features-section.pricing-features-section': ApiPricingFeaturesSectionPricingFeaturesSection;

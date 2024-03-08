@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "installation_prices",
+  "info": {
+    "singularName": "installation-price",
+    "pluralName": "installation-prices",
+    "displayName": "Installation Price"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pricing_page_template": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::pricing-page-template.pricing-page-template"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    }
+  }
+}
