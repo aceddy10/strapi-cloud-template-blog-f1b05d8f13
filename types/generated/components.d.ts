@@ -249,7 +249,9 @@ export interface UiIcon extends Schema.Component {
         'shield_protected',
         'battery_charging',
         'pricing_ro',
-        'pricing_non_ro'
+        'pricing_non_ro',
+        'pricing_whole_home',
+        'pricing_undersink'
       ]
     > &
       Attribute.Required;
