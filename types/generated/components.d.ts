@@ -84,31 +84,6 @@ export interface ItemPricingFeatures extends Schema.Component {
   };
 }
 
-export interface ItemPricingPlan extends Schema.Component {
-  collectionName: 'components_item_pricing_plans';
-  info: {
-    displayName: 'Pricing Plan';
-    description: '';
-  };
-  attributes: {
-    name: Attribute.String & Attribute.Required;
-    price: Attribute.Float & Attribute.Required & Attribute.DefaultTo<0>;
-    installation: Attribute.Boolean &
-      Attribute.Required &
-      Attribute.DefaultTo<false>;
-    list: Attribute.Component<'ui.list-item', true> & Attribute.Required;
-    get_started_href: Attribute.String;
-    get_started_external: Attribute.Boolean &
-      Attribute.Required &
-      Attribute.DefaultTo<true>;
-    get_started_color: Attribute.Enumeration<
-      ['primary', 'secondary', 'tertiary']
-    > &
-      Attribute.Required &
-      Attribute.DefaultTo<'primary'>;
-  };
-}
-
 export interface ItemServices extends Schema.Component {
   collectionName: 'components_item_services';
   info: {
@@ -291,7 +266,6 @@ declare module '@strapi/types' {
       'item.inner-features': ItemInnerFeatures;
       'item.inner-hero': ItemInnerHero;
       'item.pricing-features': ItemPricingFeatures;
-      'item.pricing-plan': ItemPricingPlan;
       'item.services': ItemServices;
       'item.steps': ItemSteps;
       'item.tips': ItemTips;
