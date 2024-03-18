@@ -1426,9 +1426,6 @@ export interface ApiPricingPlanPricingPlan extends Schema.CollectionType {
   attributes: {
     name: Attribute.String & Attribute.Required;
     price: Attribute.Float & Attribute.Required & Attribute.DefaultTo<0>;
-    installation: Attribute.Boolean &
-      Attribute.Required &
-      Attribute.DefaultTo<false>;
     list: Attribute.Component<'ui.list-item', true>;
     type: Attribute.Enumeration<['primary', 'secondary', 'tertiary']> &
       Attribute.Required &
@@ -1466,6 +1463,7 @@ export interface ApiPricingPlanPricingPlan extends Schema.CollectionType {
       Attribute.Required &
       Attribute.DefaultTo<'How to prepare'>;
     calendly_schedule_url: Attribute.String & Attribute.Required;
+    meta_label: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

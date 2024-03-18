@@ -21,11 +21,6 @@
       "required": true,
       "default": 0
     },
-    "installation": {
-      "type": "boolean",
-      "default": false,
-      "required": true
-    },
     "list": {
       "type": "component",
       "repeatable": true,
@@ -106,6 +101,10 @@
       "default": "How to prepare"
     },
     "calendly_schedule_url": {
+      "type": "string",
+      "required": true
+    },
+    "meta_label": {
       "type": "string",
       "required": true
     }
